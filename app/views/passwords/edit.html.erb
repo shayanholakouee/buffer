@@ -1,6 +1,7 @@
-<h1> Sign Up </h1>
-<%= form_with model: @user, url:sign_up_path do |f|%>
+<h1> Edit Password </h1>
 
+<%= form_with model: Current.user, url: update_password_path do |f|%>
+    
     <% if f.object.errors.any? %>
         <div>
             <% f.object.errors.full_messages.each do |message|%>
@@ -12,10 +13,6 @@
     <% end %>
 
     <div class="mb-3">
-        <%= f.label :email, "Email" %>
-        <%= f.text_field :email, class: 'form-control', placeholder: "JohnDoe@Apple.com" %>
-    </div>
-    <div class="mb-3">
         <%= f.label :password, "Password" %>
         <%= f.password_field :password, class: 'form-control', placeholder: "Choose a Password" %>
     </div>
@@ -24,6 +21,7 @@
         <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Repeat your Password" %>
     </div>
     <div>
-        <%= f.submit "Sign Up", class:"btn btn-info" %>
-    </div>  
+        <%= f.submit "Update Password", class:"btn btn-info" %>
+    </div> 
+
 <% end %>
