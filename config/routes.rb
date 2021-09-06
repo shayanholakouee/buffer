@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   #Index page
   root "main#index"
 
@@ -19,6 +20,10 @@ Rails.application.routes.draw do
   #Update Password
   get "/password"   => "passwords#edit", as: :edit_password
   patch "/password" => "passwords#update", as: :update_password
+
+  #Forgot password
+  get "/password/reset" => "password_resets#new"
+  post "/password/reset" => "password_resets#create"
 
 
 end
